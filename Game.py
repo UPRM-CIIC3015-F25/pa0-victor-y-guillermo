@@ -76,8 +76,8 @@ screen_height = 500  # Screen height (can be adjusted)
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Pong')  # Set window title
 
-# Colors
-bg_color = pygame.Color('grey12')
+# Background image
+bg_image = pygame.image.load('Cavebg.jpeg')
 
 # Game Rectangles (ball and player paddle)
 ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)  # Ball (centered)
@@ -100,8 +100,8 @@ start = False  # Indicates if the game has started
 # Main game loop
 while True:
     # Event handling
-    #  TODO Task 4: Add your name
-    name = "John Doe"
+    #  (DONE) Task 4: Add your name
+    name = 'Guillermo Sepulveda'
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  # Quit the game
             pygame.quit()
@@ -124,13 +124,15 @@ while True:
     player_movement()
 
     # Visuals
-    light_grey = pygame.Color('grey83')
-    aquamarine = pygame.Color('aquamarine')
-    screen.fill(bg_color)  # Clear screen with background color
-    pygame.draw.rect(screen, light_grey, player)  # Draw player paddle
+    chartreuse = pygame.Color('chartreuse')
+    dimgray = pygame.Color('dimgray')
+    # Drawing Background image
+    screen.blit(bg_image, (0, 0))
+    pygame.display.update()
+    pygame.draw.rect(screen, chartreuse, player)  # Draw player paddle
     # (DONE) Task 3: Change the Ball Color
-    pygame.draw.ellipse(screen, aquamarine, ball)  # Draw ball
-    player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
+    pygame.draw.ellipse(screen, dimgray, ball)  # Draw ball
+    player_text = basic_font.render(f'{score}', False, chartreuse)  # Render player score
     screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
 
     # Update display
