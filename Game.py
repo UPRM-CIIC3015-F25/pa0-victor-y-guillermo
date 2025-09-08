@@ -128,7 +128,6 @@ while True:
     dimgray = pygame.Color('dimgray')
     # Drawing Background image
     screen.blit(bg_image, (0, 0))
-    pygame.display.update()
     pygame.draw.rect(screen, chartreuse, player)  # Draw player paddle
     # (DONE) Task 3: Change the Ball Color
     pygame.draw.ellipse(screen, dimgray, ball)  # Draw ball
