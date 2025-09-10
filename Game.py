@@ -17,7 +17,7 @@ def ball_movement():
 
     # Start the ball movement when the game begins
     # (DONE) Task 5 Create a Merge Conflict.
-    speed = 10
+    speed = 8
     if start:
         ball_speed_x = speed * random.choice((1, -1))  # Randomize initial horizontal direction
         ball_speed_y = speed * random.choice((1, -1))  # Randomize initial vertical direction
@@ -94,12 +94,18 @@ player_speed = 0
 # Score Text setup
 score = 0
 basic_font = pygame.font.Font('freesansbold.ttf', 32)  # Font for displaying score
+# Music
+pygame.mixer.init()
+pygame.mixer.music.load("ch4_battle.ogg")
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1)
+
 
 start = False  # Indicates if the game has started
 
 # Main game loop
 while True:
-    # Event handling
+     # Event handling
     #  (DONE) Task 4: Add your name
     name = 'Guillermo Sepulveda'
     for event in pygame.event.get():
